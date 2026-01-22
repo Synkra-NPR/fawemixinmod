@@ -1,0 +1,37 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.synkra.fawemixinmod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "fawemixinmod.refmap.json",
+  "mixins": [
+    "apotheosisModernRagnarok.ModContent_EnchantmentsMixin",
+    "tacz.AttachmentDataUtilsMixin",
+    "tacz.EntityKineticBulletMixin",
+    "tacz.GunItemBuilderMixin",
+    "tacz.GunNbtFactoryMixin",
+    "tacz.GunPropertyDiagramsMixin",
+    "tacz.LivingEntityShootMixin",
+    "tacz.ModernKineticGunItemMixin",
+    "tacz.NetworkHandlerMixin",
+    "tacz.RecipeManagerMixin",
+    "tacz.TimelessItemNbtFactoryMixin"
+  ],
+  "client": [
+    "attributeslib.AttributesGuiMixin",
+    "tacz.CameraSetupEventMixin",
+    "tacz.ClientGunTooltipMixinOverwrite",
+    "tacz.ClientSetupEventMixin",
+    "tacz.DamageModifierMixin",
+    "tacz.GunHudOverlayMixin",
+    "tacz.GunRefitScreenMixin",
+    "tacz.InaccuracyModifierMixin",
+    "tacz.LocalPlayerShootAccessorMixin",
+    "tacz.LocalPlayerShootMixin",
+    "tacz.RecoilModifierMixin",
+    "tacz.ScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
