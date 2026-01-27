@@ -17,7 +17,7 @@ public class GunDurabilityManager {
      * @return 计算后的初始耐久度
      */
     public static int calculateInitialDurability(ResourceLocation gunId) {
-        return (int) (CommonConfig.GUN_DURABILITY_FACTOR.get() * TimelessAPI.getCommonGunIndex(gunId).map(gunIndex -> {
+        return (int) (CommonConfig.getClientGunDurabilityFactor() * TimelessAPI.getCommonGunIndex(gunId).map(gunIndex -> {
                     // 获取枪械类型
                     String typeStr = gunIndex.getType();
                     GunTabType type = null;

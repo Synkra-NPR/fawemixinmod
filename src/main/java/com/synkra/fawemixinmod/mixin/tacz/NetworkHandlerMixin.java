@@ -1,5 +1,6 @@
 package com.synkra.fawemixinmod.mixin.tacz;
 
+import com.synkra.fawemixinmod.network.message.ConfigSyncMessage;
 import com.synkra.fawemixinmod.tacz.network.message.GunRankingMessage;
 import com.synkra.fawemixinmod.tacz.network.message.KillFeedMessage;
 import com.tacz.guns.network.NetworkHandler;
@@ -38,6 +39,10 @@ public class NetworkHandlerMixin {
 
         CHANNEL.registerMessage(ID_COUNT.getAndIncrement(), KillFeedMessage.class,
                 KillFeedMessage::encode, KillFeedMessage::decode, KillFeedMessage::handle,
+                Optional.of(NetworkDirection.PLAY_TO_CLIENT));
+        
+        CHANNEL.registerMessage(ID_COUNT.getAndIncrement(), ConfigSyncMessage.class,
+                ConfigSyncMessage::encode, ConfigSyncMessage::decode, ConfigSyncMessage::handle,
                 Optional.of(NetworkDirection.PLAY_TO_CLIENT));
     }
 }

@@ -25,14 +25,14 @@ public enum GunRarity {
 
     private static final Map<GunRarity, Integer> rarityColorMap = new HashMap<>();
     private static void init(){
-        rarityColorMap.put(COMMON, CommonConfig.GUN_RARITY_COLOR.get().get(0));
-        rarityColorMap.put(UNCOMMON, CommonConfig.GUN_RARITY_COLOR.get().get(1));
-        rarityColorMap.put(RARE, CommonConfig.GUN_RARITY_COLOR.get().get(2));
-        rarityColorMap.put(EPIC, CommonConfig.GUN_RARITY_COLOR.get().get(3));
-        rarityColorMap.put(LEGENDARY, CommonConfig.GUN_RARITY_COLOR.get().get(4));
-        rarityColorMap.put(MYTHIC, CommonConfig.GUN_RARITY_COLOR.get().get(5));
-        rarityColorMap.put(IMMORTAL, CommonConfig.GUN_RARITY_COLOR.get().get(6));
-        rarityColorMap.put(ABNORMAL, CommonConfig.GUN_RARITY_COLOR.get().get(7));
+        rarityColorMap.put(COMMON, CommonConfig.getClientGunRarityColor().get(0));
+        rarityColorMap.put(UNCOMMON, CommonConfig.getClientGunRarityColor().get(1));
+        rarityColorMap.put(RARE, CommonConfig.getClientGunRarityColor().get(2));
+        rarityColorMap.put(EPIC, CommonConfig.getClientGunRarityColor().get(3));
+        rarityColorMap.put(LEGENDARY, CommonConfig.getClientGunRarityColor().get(4));
+        rarityColorMap.put(MYTHIC, CommonConfig.getClientGunRarityColor().get(5));
+        rarityColorMap.put(IMMORTAL, CommonConfig.getClientGunRarityColor().get(6));
+        rarityColorMap.put(ABNORMAL, CommonConfig.getClientGunRarityColor().get(7));
     }
 
     public static int getColor(GunRarity rarity) {

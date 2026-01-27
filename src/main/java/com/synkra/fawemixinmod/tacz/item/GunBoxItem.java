@@ -32,7 +32,7 @@ public class GunBoxItem extends Item {
     @Override
     @Nonnull
     public InteractionResultHolder<ItemStack> use(Level level, Player player, @NotNull InteractionHand hand) {
-        if (!CommonConfig.ENABLED_GUN_RANDOM.get()) {
+        if (!CommonConfig.getClientEnabledGunRandom()) {
             return InteractionResultHolder.pass(player.getItemInHand(hand));
         }
 

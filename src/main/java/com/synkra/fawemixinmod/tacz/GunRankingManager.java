@@ -16,7 +16,7 @@ public class GunRankingManager {
 
     private static final Map<ResourceLocation, GunRarity> GUN_RARITY_MAP = new HashMap<>();
     private static boolean isInitialized = false;
-    private static final List<? extends String> ABNORMAL_GUNS_IDS = CommonConfig.GUN_BOX_BLACK_LIST.get();
+    private static List<? extends String> ABNORMAL_GUNS_IDS = CommonConfig.GUN_BOX_BLACK_LIST.get();
     private static final double[] distribution = new double[7];
     public static void init() {
         if (isInitialized) {
@@ -254,13 +254,13 @@ public class GunRankingManager {
         // 分布百分比
 
         GunRarity[] rarities = {
-                GunRarity.IMMORTAL,   // 7 - 前 5%
-                GunRarity.MYTHIC,     // 6 - 接下来 11%
-                GunRarity.LEGENDARY,  // 5 - 接下来 16%
-                GunRarity.EPIC,       // 4 - 接下来 17%
-                GunRarity.RARE,       // 3 - 接下来 17%
-                GunRarity.UNCOMMON,   // 2 - 接下来 19%
-                GunRarity.COMMON      // 1 - 最后 20%
+                GunRarity.IMMORTAL,
+                GunRarity.MYTHIC,
+                GunRarity.LEGENDARY,
+                GunRarity.EPIC,
+                GunRarity.RARE,
+                GunRarity.UNCOMMON,
+                GunRarity.COMMON
         };
 
         int currentIndex = 0;
@@ -314,17 +314,17 @@ public class GunRankingManager {
         return baseDamage;
     }
     public static float getDamageMultiplier(GunRarity rarity) {
-        return switch (rarity) {
-            case COMMON -> 0.75f;
-            case UNCOMMON -> 1f;
-            case RARE -> 1.3f;
-            case EPIC -> 1.7f;
-            case LEGENDARY -> 2.15f;
-            case MYTHIC -> 2.65f;
-            case IMMORTAL -> 3.5f;
-            case ABNORMAL -> 1.0f;
-            default -> 1.0f;
+        int index= switch (rarity) {
+            case COMMON -> 0;
+            case UNCOMMON -> 1;
+            case RARE -> 2;
+            case EPIC -> 3;
+            case LEGENDARY -> 4;
+            case MYTHIC -> 5;
+            case IMMORTAL -> 6;
+            case ABNORMAL -> 7;
         };
+        return CommonConfig.getClientGunDamageModifier().get(index).floatValue();
     }
 
     public static int getGunRankingValue(GunRarity rarity) {

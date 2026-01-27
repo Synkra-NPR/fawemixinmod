@@ -40,10 +40,10 @@ public class RecipeManagerMixin {
     )
     private <T extends Recipe<?>> void onByType(RecipeType<T> pRecipeType, CallbackInfoReturnable<Map<ResourceLocation, T>> cir) {
         // 检查是否是枪械合成配方类型，且启用了Mixin枪械配方功能
-        if (pRecipeType == ModRecipe.GUN_SMITH_TABLE_CRAFTING.get() && CommonConfig.ENABLED_MIXIN_GUN_RECIPE.get()) {
+        if (pRecipeType == ModRecipe.GUN_SMITH_TABLE_CRAFTING.get() && CommonConfig.getClientEnabledMixinGunRecipe()) {
             Map<ResourceLocation, T> originalRecipes = cir.getReturnValue();
 
-            if (CommonConfig.ENABLED_GUN_RANDOM.get()) {
+            if (CommonConfig.getClientEnabledGunRandom()) {
                 // 删除模式：过滤掉枪械配方
                 Map<ResourceLocation, T> filteredRecipes = originalRecipes
                         .entrySet()

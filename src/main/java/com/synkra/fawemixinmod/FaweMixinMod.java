@@ -3,6 +3,7 @@ package com.synkra.fawemixinmod;
 import com.mojang.logging.LogUtils;
 import com.synkra.fawemixinmod.config.ClientConfig;
 import com.synkra.fawemixinmod.config.CommonConfig;
+import com.synkra.fawemixinmod.event.ConfigSyncHandler;
 import com.synkra.fawemixinmod.tacz.GunRarity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
@@ -49,7 +50,10 @@ public class FaweMixinMod
         // Register configs
         context.registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC,"fawemixinmod-Client.toml");
         context.registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC,"fawemixinmod-Common.toml");
+        
+        // Register event handlers
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(ConfigSyncHandler.class);
     }
 }
 
