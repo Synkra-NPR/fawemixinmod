@@ -50,52 +50,59 @@ public class CommonConfig {
     
     // 获取配置值，自动根据环境决定使用哪个值
     public static boolean getClientEnabledMixinGunRecipe() {
-        return DistExecutor.safeRunForDist(
-            () -> () -> client_enabledMixinGunRecipe,
-            () -> () -> ENABLED_MIXIN_GUN_RECIPE.get()
-        );
+        if (FMLEnvironment.dist.isClient()) {
+            return client_enabledMixinGunRecipe;
+        } else {
+            return ENABLED_MIXIN_GUN_RECIPE.get();
+        }
     }
     
     public static boolean getClientEnabledGunRandom() {
-        return DistExecutor.safeRunForDist(
-            () -> () -> client_enabledGunRandom,
-            () -> () -> ENABLED_GUN_RANDOM.get()
-        );
+        if (FMLEnvironment.dist.isClient()) {
+            return client_enabledGunRandom;
+        } else {
+            return ENABLED_GUN_RANDOM.get();
+        }
     }
     
     public static double getClientGunDurabilityFactor() {
-        return DistExecutor.safeRunForDist(
-            () -> () -> client_gunDurabilityFactor,
-            () -> () -> GUN_DURABILITY_FACTOR.get()
-        );
+        if (FMLEnvironment.dist.isClient()) {
+            return client_gunDurabilityFactor;
+        } else {
+            return GUN_DURABILITY_FACTOR.get();
+        }
     }
     
     public static List<Integer> getClientGunRarityColor() {
-        return (List<Integer>) DistExecutor.safeRunForDist(
-            () -> () -> client_gunRarityColor,
-            () -> () -> GUN_RARITY_COLOR.get()
-        );
+        if (FMLEnvironment.dist.isClient()) {
+            return client_gunRarityColor;
+        } else {
+            return (List<Integer>) GUN_RARITY_COLOR.get();
+        }
     }
     
     public static List<Double> getClientGunRarityDistribution() {
-        return (List<Double>) DistExecutor.safeRunForDist(
-            () -> () -> client_gunRarityDistribution,
-            () -> () -> GUN_RARITY_DISTRIBUTION.get()
-        );
+        if (FMLEnvironment.dist.isClient()) {
+            return client_gunRarityDistribution;
+        } else {
+            return (List<Double>) GUN_RARITY_DISTRIBUTION.get();
+        }
     }
     
     public static List<Double> getClientGunDamageModifier() {
-        return (List<Double>) DistExecutor.safeRunForDist(
-            () -> () -> client_gunDamageModifier,
-            () -> () -> GUN_DAMAGE_MODIFIER.get()
-        );
+        if (FMLEnvironment.dist.isClient()) {
+            return client_gunDamageModifier;
+        } else {
+            return (List<Double>) GUN_DAMAGE_MODIFIER.get();
+        }
     }
     
     public static List<String> getClientGunBoxBlackList() {
-        return (List<String>) DistExecutor.safeRunForDist(
-            () -> () -> client_gunBoxBlackList,
-            () -> () -> GUN_BOX_BLACK_LIST.get()
-        );
+        if (FMLEnvironment.dist.isClient()) {
+            return client_gunBoxBlackList;
+        } else {
+            return (List<String>) GUN_BOX_BLACK_LIST.get();
+        }
     }
 
     private static void init(ForgeConfigSpec.Builder builder) {

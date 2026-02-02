@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "fawemixinmod.refmap.json",
   "mixins": [
+    "apotheosis.EnchModuleMixin",
     "apotheosisModernRagnarok.ModContent_EnchantmentsMixin",
     "tacz.AttachmentDataUtilsMixin",
     "tacz.EntityKineticBulletMixin",

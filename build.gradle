@@ -118,11 +118,15 @@ dependencies {
     implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:7401617-sources-6633203")
     implementation fg.deobf("curse.maven:placebo-283644:6274231")
     implementation fg.deobf("curse.maven:Apotheosis-313970:6461960")
-    implementation fg.deobf("curse.maven:apothic-attributes-898963:5634071")//一添加就崩
-    implementation fg.deobf("curse.maven:Apotheosis-Modern-Ragnarok-966582:7281314")//一添加就崩
-
+    implementation fg.deobf("curse.maven:apothic-attributes-898963:5634071")
+    implementation fg.deobf("curse.maven:Apotheosis-Modern-Ragnarok-966582:7281314")
+//    implementation fg.deobf("curse.maven:create-tfmg-693815:7344584")
+//    implementation fg.deobf("curse.maven:create-328085:7178761")
+//
     runtimeOnly fg.deobf("curse.maven:In-Game-NBTEdit-678133:5984630")
+//    runtimeOnly fg.deobf("curse.maven:create-new-age-905861:7452740")
     runtimeOnly fg.deobf("curse.maven:jei-238222:7391695")
+//    runtimeOnly fg.deobf("curse.maven:create-addition-439890:7208610")
 }
 tasks.named('processResources', ProcessResources).configure {
     var replaceProperties = [
